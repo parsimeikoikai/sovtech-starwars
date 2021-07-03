@@ -1,14 +1,11 @@
-const people = [
-  {
-    name: "John Doe",
-  },
-  {
-    name: "Paul Auster",
-  },
-];
 const resolvers = {
   Query: {
-    people: () => people,
+    people: async (_: any, { pageUrl }: any, { dataSources }: any) => {
+      return dataSources.starWarsAPI.getAllPeople(pageUrl);
+    },
+    person: async (_: any, { name }: any, { dataSources }: any) => {
+      return dataSources.starWarsAPI.getPersonByName(name);
+    },
   },
 };
 export default resolvers;
