@@ -4,6 +4,7 @@ import { ApolloProvider } from "@apollo/react-hooks";
 import { InMemoryCache } from "apollo-cache-inmemory";
 import { HttpLink } from "apollo-link-http";
 import { ApolloClient } from "apollo-client";
+import Home from "./src/pages/Home";
 
 const cache = new InMemoryCache();
 const link = new HttpLink({
@@ -13,7 +14,7 @@ const link = new HttpLink({
 const client = new ApolloClient({ cache, link });
 
 const App = () => {
-  return <div>Hello Starwars</div>;
+  return <Home />;
 };
 
 ReactDOM.render(
