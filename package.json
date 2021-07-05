@@ -9,8 +9,7 @@
         "client:build": "parcel build client/index.html -d ./dist-client",
         "server:start": "ts-node server/src/index.ts",
         "dev": "concurrently --kill-others \"yarn server:dev\" \"yarn client:dev\"",
-        "start": "concurrently --kill-others \"yarn server:start\" \"yarn client:build\"",
-        "heroku-postbuild": "serve -s dis-client",
+        "start": "concurrently --kill-others \"yarn server:start\" \"yarn client:build && serve -s dist-client\"",
         "test": "echo \"Error: no test specified\" && exit 1"
     },
     "author": "jomasim",
