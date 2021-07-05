@@ -1,7 +1,7 @@
 import { ApolloServer } from "apollo-server";
 import resolvers from "./resolvers";
 import typeDefs from "./typeDefs";
-import StarWarsAPI from "./starWarsAPI";
+import StarWarsAPI from "./StarWarsAPI";
 
 const server = new ApolloServer({
   typeDefs,
