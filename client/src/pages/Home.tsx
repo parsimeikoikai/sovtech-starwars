@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import { useHistory } from "react-router-dom";
 import { useQuery } from "@apollo/react-hooks";
 import { gql } from "apollo-boost";
 import styled from "styled-components";
@@ -70,6 +71,7 @@ const GET_ALL_PEOPLE = gql`
 const Home = () => {
   const { data, loading, error, fetchMore } = useQuery(GET_ALL_PEOPLE);
   const [people, setPeople] = useState({});
+  const history = useHistory();
 
   useEffect(() => {
     if (data) {
@@ -100,6 +102,10 @@ const Home = () => {
       },
     });
   };
+  const redirectToDetails = (name) => {
+    // redirect details page
+    history.push(`/details/${name}`);
+  };
 
   if (loading) {
     return <Loader />;
@@ -117,7 +123,7 @@ const Home = () => {
           </Tr>
           {people.results &&
             people.results.map((person, index) => (
-              <Tr key={index}>
+              <Tr key={index} onClick={() => redirectToDetails(person.name)}>
                 <Td>{person.name}</Td>
                 <Td>{person.gender}</Td>
                 <Td>{person.mass}</Td>

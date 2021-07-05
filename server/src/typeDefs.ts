@@ -2,7 +2,7 @@ const { gql } = require("apollo-server");
 const typeDefs = gql`
   type Query {
     people(pageUrl: String = ""): People!
-    person(name: String!): Person!
+    person(name: String): Person!
   }
   type People {
     count: Int
