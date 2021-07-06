@@ -68,3 +68,7 @@ https://starwarpp.herokuapp.com/
 - NodeJS
 - Typescript
 - Styled components
+
+![People](./images/home.png)
+
+![Details](./images/details.png)
