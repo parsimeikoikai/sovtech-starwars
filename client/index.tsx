@@ -9,8 +9,9 @@ import Home from "./src/pages/Home";
 import Details from "./src/pages/Details";
 
 const cache = new InMemoryCache();
+const uri = process.env.NODE_ENV === 'development' ? "http://localhost:4000/graphql" : '/graphql';
 const link = new HttpLink({
-  uri: "http://localhost:4000/graphql",
+  uri
 });
 
 const client = new ApolloClient({ cache, link });

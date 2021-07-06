@@ -48,7 +48,6 @@ const GET_PERSON = gql`
 const Details = () => {
   const history = useHistory();
   const { name } = useParams();
-  console.log("name", name);
   const { data, loading, error } = useQuery(GET_PERSON, {
     variables: { name },
   });
@@ -57,7 +56,6 @@ const Details = () => {
 
   useEffect(() => {
     if (data) {
-      console.log(data, "here");
       setPerson(data.person);
     }
   }, [data]);
