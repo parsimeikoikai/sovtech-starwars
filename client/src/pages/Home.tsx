@@ -5,12 +5,19 @@ import { gql } from "apollo-boost";
 import styled from "styled-components";
 import Loader from "../components/Loader";
 
+const Title = styled.h1`
+  font-size: 2.5em;
+  text-align: center;
+  color: palevioletred;
+`;
 const Main = styled.main`
   padding: 4em;
+  background: snow;
+  font-family: "museo", Helvetica Neue, Helvetica, sans-serif;
 `;
 
 const Table = styled.table`
-  font-family: arial, sans-serif;
+  border: 1px solid black;
   border-collapse: collapse;
   width: 100%;
 `;
@@ -32,6 +39,8 @@ const Tr = styled.tr`
   &:nth-child(even) {
     background-color: #dddddd;
   }
+  font-family: "museo", Helvetica Neue, Helvetica, sans-serif;
+  font-weight : 100;
 `;
 const TFooter = styled.div`
   display: flex;
@@ -104,7 +113,7 @@ const Home = () => {
   };
   const redirectToDetails = (name) => {
     // redirect details page
-    history.push(`/details/${name}`);
+    history.push(`/individual/${name}`);
   };
 
   if (loading) {
@@ -112,22 +121,28 @@ const Home = () => {
   }
   return (
     <Main>
-      <h3>Welcome to Star wars</h3>
+   
+      <Title>
+      Star Wars People List
+    </Title>
+    <h3>(Click on name to view more details)</h3>
+      <hr/>
       <Table>
-        <tbody style={{ fontFamily: "Nunito Sans, sans-serif" }}>
+        <tbody >
           <Tr>
             <Th>Name</Th>
+            <Th>Height</Th>
             <Th>Gender</Th>
             <Th>Mass</Th>
-            <Th>Height</Th>
+            
           </Tr>
           {people.results &&
             people.results.map((person, index) => (
               <Tr key={index} onClick={() => redirectToDetails(person.name)}>
-                <Td>{person.name}</Td>
+                <Td><b>{person.name}</b></Td>
+                <Td>{person.height}</Td>
                 <Td>{person.gender}</Td>
                 <Td>{person.mass}</Td>
-                <Td>{person.height}</Td>
               </Tr>
             ))}
         </tbody>

@@ -6,7 +6,7 @@ import { HttpLink } from "apollo-link-http";
 import { ApolloClient } from "apollo-client";
 import { BrowserRouter, Switch, Route } from "react-router-dom";
 import Home from "./src/pages/Home";
-import Details from "./src/pages/Details";
+import Individual from "./src/pages/Individual";
 
 const cache = new InMemoryCache();
 const uri = process.env.NODE_ENV === 'development' ? "http://localhost:4000/graphql" : '/graphql';
@@ -20,7 +20,7 @@ const App = () => (
   <BrowserRouter>
     <Switch>
       <Route path="/" component={Home} exact />
-      <Route path="/details/:name" component={Details} />
+      <Route path="/individual/:name" component={Individual} />
     </Switch>
   </BrowserRouter>;
 );
