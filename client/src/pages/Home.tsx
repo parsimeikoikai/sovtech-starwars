@@ -121,7 +121,6 @@ const Home = () => {
   }
   return (
     <Main>
-   
       <Title>
       Star Wars People List
     </Title>
@@ -153,7 +152,7 @@ const Home = () => {
             onClick={() => fetchExtra(data.people.previous)}
             style={{ borderRight: "none" }}
           >
-            Previous
+          Previous
           </Button>
           <Span>{getCurrentPage()}</Span>
           <Button
