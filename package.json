@@ -1,0 +1,46 @@
+{
+    "name": "starwars",
+    "version": "1.0.0",
+    "description": "starwars",
+    "main": "index.js",
+    "scripts": {
+        "client:dev": "parcel client/index.html",
+        "server:dev": "ts-node server/src/index.ts",
+        "build": "parcel build client/index.html -d ./dist-client",
+        "client:start": "serve -s dist-client",
+        "start": "ts-node server/src/index.ts",
+        "dev": "concurrently --kill-others \"yarn server:dev\" \"yarn client:dev\"",
+        "heroku-postbuild": "yarn build",
+        "test": "echo \"Error: no test specified\" && exit 1"
+    },
+    "author": "jomasim",
+    "license": "ISC",
+    "dependencies": {
+        "@apollo/react-hooks": "^4.0.0",
+        "apollo-boost": "^0.4.9",
+        "apollo-cache-inmemory": "^1.6.6",
+        "apollo-client": "^2.6.10",
+        "apollo-datasource-rest": "^0.14.0",
+        "apollo-link-http": "^1.5.17",
+        "apollo-server": "^2.25.2",
+        "apollo-server-express": "^2.25.2",
+        "concurrently": "^6.2.0",
+        "cors": "^2.8.5",
+        "express": "^4.17.1",
+        "graphql": "^15.5.1",
+        "react": "^17.0.2",
+        "react-dom": "^17.0.2",
+        "react-icons": "^4.2.0",
+        "react-router-dom": "^5.2.0",
+        "serve": "^12.0.0",
+        "styled-components": "^5.3.0",
+        "ts-node": "^10.0.0"
+    },
+    "devDependencies": {
+        "@babel/core": "^7.14.6",
+        "@babel/preset-env": "^7.14.7",
+        "@babel/preset-react": "^7.14.5",
+        "parcel-bundler": "^1.12.5",
+        "typescript": "^4.3.5"
+    }
+}
